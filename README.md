@@ -55,17 +55,20 @@ layerA.style.background = gradient.radial("yellow", "red", originX: 0.5, originY
 
 #### Optionally set the gradient's spread
 ```coffeescript
-layerA.style.background = gradient.top("yellow", "red", spread: 0.5) # 1 is default, 0 is no transition between colors
+layerA.style.background = gradient.top("yellow", "red", spread: 0.5)
+# 1 is default, 0 is no transition between colors
 ```
 
 #### Optionally set the gradient's offset (linear gradients only)
 ```coffeescript
-layerA.style.background = gradient.top("yellow", "red", offset: 10) # 0 is no offset, 100 will push the gradient out of view
+layerA.style.background = gradient.top("yellow", "red", offset: 10)
+# 0 is no offset, 100 will push the gradient out of view
 ```
 
 #### Optionally change the CSS prefix
 ```coffeescript
-layerA.style.background = gradient.top("yellow", "red", prefix: "moz") # webkit is default, hyphens are added for you
+layerA.style.background = gradient.top("yellow", "red", prefix: "moz")
+# webkit is default, hyphens are added for you
 ```
 
 ### Gradient Layers
