@@ -53,7 +53,7 @@ layerA.style.background = gradient.radialThreeColor("yellow", "red", "green")
 layerA.style.background = gradient.radial("yellow", "red", originX: 0.5, originY: 0, scaleX: 2, scaleY: 1)
 ```
 
-`originX`, `originY`, `scaleX` and `scaleY` are percentages. An `originX`,`originY` of 0,0 centers the gradient in the upper left while 1,1 centers it in the lower right. 0.5,0.5 is the default center.
+`originX`, `originY`, `scaleX`, and `scaleY` are percentages. An `originX`,`originY` of 0,0 centers the gradient in the upper left, while 1,1 centers it in the lower right. 0.5,0.5 is the default center.
 
 #### Optionally set the gradient's spread
 ```coffeescript
