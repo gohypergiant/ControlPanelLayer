@@ -99,7 +99,7 @@ layerA = new gradient.RadialLayer
 	gradientScaleY: <number> (percentage, 1 is 100% scale)
 ```
 	
-#### Animating gradients
+#### Animating a gradient
 ```coffeescript
 layerA.animateGradient(<arguments>)
 ```
