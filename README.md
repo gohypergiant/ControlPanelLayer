@@ -14,9 +14,9 @@ The Gradient Helper module simplifies the process of applying gradients to Frame
 
 Copy or save the `Gradient.coffee` file into your project's `modules` folder.
 
-### Adding It To Your Project
+### Adding It to Your Project
 
-In your Framer project add the following:
+In your Framer project, add the following:
 
 ```javascript
 gradient = require "Gradient"
@@ -74,7 +74,7 @@ layerA.style.background = gradient.top("yellow", "red", prefix: "moz")
 ```
 
 ### Gradient Layers
-While a gradient can be applied to any existing layer, for convenience it is possible to create two types of gradient layers. If you wish to animate your gradients you will need to do so using one of these classes.
+While a gradient can be applied to any existing layer, for convenience it is possible to create two types of gradient layers. If you wish to animate your gradients, you can do so using one of these classes:
 
 ```coffeescript
 layerA = new gradient.Layer
@@ -99,7 +99,7 @@ layerA = new gradient.RadialLayer
 	gradientScaleY: <number> (percentage, 1 is 100% scale)
 ```
 	
-### Animating Gradients
+#### Animating Gradients
 ```coffeescript
 layerA.animateGradient(<arguments>)
 ```
