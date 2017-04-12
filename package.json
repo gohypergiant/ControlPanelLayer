@@ -1,6 +1,6 @@
 {
   "name": "@blackpixel/framer-gradienthelper",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Simplifies the process of applying gradients to Framer layers and even enables animated gradients.",
   "homepage": "https://github.com/bpxl-labs/GradientHelper",
   "repository": {
