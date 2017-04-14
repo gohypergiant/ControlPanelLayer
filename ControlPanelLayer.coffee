@@ -1,9 +1,9 @@
 ###
 	# USING THE CONTROLPANELLAYER MODULE
-	
+
 	# Require the module
 	ControlPanelLayer = require "ControlPanelLayer"
-	
+
 	myControlPanel = new ControlPanelLayer
 		scaleFactor: <number>
 		specs: <object>
@@ -16,7 +16,7 @@
 		buttonColor: <string> (hex or rgba)
 		commitAction: -> <action>
 		closeAction: -> <action>
-		
+
 	# The specs object
 
 	# The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Optionally you may include an explanatory `tip`. Additional keys will be ignored.
@@ -27,13 +27,14 @@
 		defaultText:
 			label: "Default text"
 			value: "hello"
+			tip: "Initial text to display."
 		animationTime:
 			label: "Animation time"
 			value: 5
+			tip: "How long the animation will run."
 		autoplay:
 			label: "Should autoplay"
 			value: false
-			tip: "Determines whether videos play automatically."
 
 	# Referring to a particular spec using such an object is done with the usual dot notation or bracket notation, e.g. `exampleSpecs.animationTime.value` or `exampleSpecs["animationTime"]["value"]` or `exampleSpecs["animationTime"].value`.
 
@@ -44,15 +45,23 @@
 	myControlPanel = new ControlPanelLayer
 		specs: exampleSpecs
 		commitAction: -> exampleSpecs = this.specs
-		
+
+	# The close action
+
+	# The panel close button works to hide the panel, but you may supply it with additional functionality.
+
+	myControlPanel = new ControlPanelLayer
+		specs: exampleSpecs
+		closeAction: -> print "panel closed"
+
 	# Integration with QueryInterface (https://github.com/marckrenn/framer-QueryInterface/)
-	
+
 	{QueryInterface} = require 'QueryInterface'
 
 	querySpecs = new QueryInterface
 		key: "specs"
 		default: exampleSpecs
-		
+
 	myControlPanel = new ControlPanelLayer
 		specs: querySpecs.value
 		commitAction: -> querySpecs.value = this.specs; window.location.reload(false)
@@ -78,7 +87,7 @@ class ControlPanelLayer extends Layer
 	constructor: (@options={}) ->
 		@options = _.assign({}, defaults, @options)
 		super @options
-		
+
 		rowHeight = 32 * @options.scaleFactor
 		panelTopMargin = 15 * @options.scaleFactor
 		panelBottomMargin = 15 * @options.scaleFactor
@@ -109,7 +118,7 @@ class ControlPanelLayer extends Layer
 		closeGlyphRotationX = closeButtonSize/2
 		closeGlyphRotationY = closeButtonSize/2
 		alertString = "Add specs with <code style='color:#{codeBodyColor}'><span style='color:#{codeVariableColor}'>specs</span>: <span style='color:#{codeBracketColor}'>&lt;</span>mySpecs<span style='color:#{codeBracketColor}'>&gt;</span></code>"
-		
+
 		rowCount = Object.keys(@options.specs).length + 1 # allow for Commit button
 		rows = []
 		@.name = "controlPanel"
@@ -121,9 +130,9 @@ class ControlPanelLayer extends Layer
 		@.backgroundColor = @options.backgroundColor
 		@.draggable = @options.draggable
 		@.draggable.momentum = false
-		
+
 		labelWidth = @.width - 125 * @options.scaleFactor
-		
+
 		inputCSS = """
 		input[type='text'] {
 		  color: #{@options.inputTextColor};
@@ -141,16 +150,16 @@ class ControlPanelLayer extends Layer
 		  position: relative;
 		  top: #{inputTopOffet}px;
 		}"""
-		
+
 		closeGlyph = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 #{svgTopOffset} #{closeButtonSize} #{closeButtonSize}'><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(45 #{closeGlyphRotationX} #{closeGlyphRotationY})' /><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(135 #{closeGlyphRotationX} #{closeGlyphRotationY})' /></svg>"
-		
+
 		Utils.insertCSS(inputCSS)
-		
+
 		keyIndex = 0
 		for row of @options.specs
 			do (row) =>
 				tipRequired = if @options.specs[row].tip != "" and @options.specs[row].tip != undefined then true else false
-				
+
 				rowBlock = new Layer
 					name: "row" + keyIndex
 					parent: @
@@ -159,9 +168,9 @@ class ControlPanelLayer extends Layer
 					height: if tipRequired then panelRowHeight * 1.5 else panelRowHeight
 					width: labelWidth
 					backgroundColor: "clear"
-				
+
 				rows.push(rowBlock)
-				
+
 				label = new TextLayer
 					name: _.camelCase(@options.specs[row].label + "Label")
 					parent: rowBlock
@@ -174,9 +183,9 @@ class ControlPanelLayer extends Layer
 						vertical: panelLabelSize/3
 					height: panelRowHeight
 					width: labelWidth
-				
+
 				@[label.name] = label
-				
+
 				if tipRequired
 					tip = new TextLayer
 						name: _.camelCase(@options.specs[row].label + "Tip")
@@ -190,9 +199,9 @@ class ControlPanelLayer extends Layer
 						fontWeight: 500
 						textAlign: "right"
 						truncate: true
-						
+
 					@[tip.name] = tip
-					
+
 				idString = _.camelCase(@options.specs[row].label + "Input")
 				switch typeof @options.specs[row].value
 					when "boolean"
@@ -207,7 +216,7 @@ class ControlPanelLayer extends Layer
 							borderColor: @options.textColor
 							borderWidth: 1 * @options.scaleFactor
 							backgroundColor: "clear"
-							
+
 						inputMark = new Layer
 							name: "mark"
 							parent: input
@@ -218,10 +227,10 @@ class ControlPanelLayer extends Layer
 							borderRadius: radioButtonMarkSize/2
 							backgroundColor: @options.textColor
 							visible: @options.specs[row].value
-							
+
 						input.mark = inputMark
 						input.row = row
-							
+
 						input.onClick =>
 							if @options.specs[input.row].value == true
 								@options.specs[input.row].value = false
@@ -229,7 +238,7 @@ class ControlPanelLayer extends Layer
 							else
 								@options.specs[input.row].value = true
 								input.mark.visible = true
-							
+
 					else
 						input = new Layer
 							name: idString
@@ -241,9 +250,9 @@ class ControlPanelLayer extends Layer
 							height: panelRowHeight
 							width: inputWidth
 							backgroundColor: "clear"
-					
+
 				@[input.name] = input
-									
+
 				if @options.showGuides == true
 					guide = new Layer
 						name: "guide"
@@ -254,12 +263,12 @@ class ControlPanelLayer extends Layer
 						height: 1
 						y: panelLabelSize * 1.3
 						opacity: 0.5
-						
+
 			++keyIndex
-		
-		
+
+
 		@.height = @.contentFrame().height + panelTopMargin + panelBottomMargin + commitButtonHeight + commitButtonTopMargin
-		
+
 		closeButton = new Layer
 			name: "closeButton"
 			parent: @
@@ -272,12 +281,12 @@ class ControlPanelLayer extends Layer
 			x: closeButtonMargin
 			y: closeButtonMargin
 			html: closeGlyph
-		
+
 		@.closeButton = closeButton
-		
+
 		closeButton.onClick =>
 			@.hide()
-		
+
 		commitButton = new TextLayer
 			name: "commitButton"
 			parent: @
@@ -294,10 +303,10 @@ class ControlPanelLayer extends Layer
 			padding:
 				vertical: panelLabelSize/3
 			borderRadius: 5 * @options.scaleFactor
-		
+
 		@.commitButton = commitButton
-		
-		commitButton.onClick => 
+
+		commitButton.onClick =>
 			for row of @options.specs
 				do(row) =>
 					idString = _.camelCase(@options.specs[row].label + "Input")
@@ -312,10 +321,10 @@ class ControlPanelLayer extends Layer
 							typedValue = document.getElementById(idString).value
 					@options.specs[row].value = typedValue
 			@options.commitAction()
-			
+
 		if @options.hidden == true
 			@.hide()
-			
+
 	hide: () =>
 		@options.hidden = true
 		@.animate
@@ -334,7 +343,7 @@ class ControlPanelLayer extends Layer
 				opacity: 1
 			time:
 				0.25
-	
+
 	@define 'specs', get: () -> @options.specs
 	@define 'hidden', get: () -> @options.hidden
 module.exports = ControlPanelLayer

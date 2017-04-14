@@ -46,7 +46,7 @@ myControlPanel = new ControlPanelLayer
 
 #### The specs object
 
-The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Additional keys will be ignored.
+The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Optionally you may include an explanatory `tip`. Additional keys will be ignored.
 
 The specs object can include strings, numbers and booleans.
 
@@ -55,9 +55,11 @@ exampleSpecs =
 	defaultText:
 		label: "Default text"
 		value: "hello"
+		tip: "Initial text to display."
 	animationTime:
 		label: "Animation time"
 		value: 5
+		tip: "How long the animation will run."
 	autoplay:
 		label: "Should autoplay"
 		value: false
@@ -75,7 +77,19 @@ myControlPanel = new ControlPanelLayer
 	commitAction: -> exampleSpecs = this.specs
 ```
 
+#### 	The close action
+	
+The panel close button works to hide the panel, but you may supply it with additional functionality.
+
+```coffeescript
+myControlPanel = new ControlPanelLayer
+	specs: exampleSpecs
+	closeAction: -> print "panel closed"
+```
+
 #### Example of integration with [QueryInterface](https://github.com/marckrenn/framer-QueryInterface/)
+
+Using ControlPanelLayer in conjunction with QueryInterface provides a way to maintain settings across a reload or link to your prototype with custom settings included in the URL.
 
 ```coffeescript
 {QueryInterface} = require 'QueryInterface'
