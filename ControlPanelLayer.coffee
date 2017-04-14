@@ -286,6 +286,7 @@ class ControlPanelLayer extends Layer
 
 		closeButton.onClick =>
 			@.hide()
+			@options.closeAction()
 
 		commitButton = new TextLayer
 			name: "commitButton"
