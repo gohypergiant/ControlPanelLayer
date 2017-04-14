@@ -32,16 +32,17 @@ Instantiates a new instance of ControlPanelLayer.
 
 ```coffeescript
 myControlPanel = new ControlPanelLayer
-	scaleFactor: <number>
-	specs: <object>
-	draggable: <boolean>
-	textColor: <string> (hex or rgba)
-	inputBackgroundColor: <string> (hex or rgba)
-	inputTextColor: <string> (hex or rgba)
-	backgroundColor: <string> (hex or rgba)
-	buttonTextColor: <string> (hex or rgba)
-	buttonColor: <string> (hex or rgba)
-	commitAction: -> <action>
+		scaleFactor: <number>
+		specs: <object>
+		draggable: <boolean>
+		textColor: <string> (hex or rgba)
+		backgroundColor: <string> (hex or rgba)
+		inputTextColor: <string> (hex or rgba)
+		inputBackgroundColor: <string> (hex or rgba)
+		buttonTextColor: <string> (hex or rgba)
+		buttonColor: <string> (hex or rgba)
+		commitAction: -> <action>
+		closeAction: -> <action>
 ```
 
 #### The specs object

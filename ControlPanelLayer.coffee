@@ -9,9 +9,9 @@
 		specs: <object>
 		draggable: <boolean>
 		textColor: <string> (hex or rgba)
-		inputBackgroundColor: <string> (hex or rgba)
-		inputTextColor: <string> (hex or rgba)
 		backgroundColor: <string> (hex or rgba)
+		inputTextColor: <string> (hex or rgba)
+		inputBackgroundColor: <string> (hex or rgba)
 		buttonTextColor: <string> (hex or rgba)
 		buttonColor: <string> (hex or rgba)
 		commitAction: -> <action>
