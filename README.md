@@ -6,7 +6,7 @@
 
 The ControlPanelLayer module makes it easier to construct a developer panel for controlling aspects of your prototype within the prototype itself.
 	
-<img src="https://cloud.githubusercontent.com/assets/935/24376320/13b7ea52-1301-11e7-99c0-35b8f327b982.gif" width="497" style="display: block; margin: auto" alt="StatusBarLayer preview" />	
+<img src="https://cloud.githubusercontent.com/assets/935/25053522/5e1b0ad2-211d-11e7-8a43-b91558fa2d63.png" width="497" style="display: block; margin: auto" alt="StatusBarLayer preview" />	
 
 ### Installation
 
