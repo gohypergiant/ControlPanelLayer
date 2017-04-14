@@ -104,6 +104,22 @@ myControlPanel = new ControlPanelLayer
 	commitAction: -> querySpecs.value = this.specs; window.location.reload(false)
 ```
 
+#### `myControlPanel.show()`
+
+Show the ControlPanelLayer instance.
+
+#### `myControlPanel.hide()`
+
+Hide the ControlPanelLayer instance.
+
+#### `myControlPanel.hidden`
+
+> readonly
+
+**Returns**
+
+_(Boolean)_: Whether or not the ControlPanelLayer is currently hidden
+
 ---
 
 Website: [blackpixel.com](https://blackpixel.com) &nbsp;&middot;&nbsp;
