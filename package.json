@@ -1,0 +1,34 @@
+{
+  "name": "@blackpixel/framer-gradienthelper",
+  "version": "1.0.0",
+  "description": "Simplifies the process of applying gradients to Framer layers and even enables animated gradients.",
+  "homepage": "https://github.com/bpxl-labs/GradientHelper",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bpxl-labs/GradientHelper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bpxl-labs/GradientHelper/issues"
+  },
+  "main": "Gradient.coffee",
+  "author": "Black Pixel",
+  "license": "MIT",
+  "keywords": [
+    "framerjs",
+    "framer",
+    "coffeescript",
+    "gradient",
+    "animation"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "coffeeify": "^2.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  }
+}
