@@ -67,7 +67,7 @@
 		commitAction: -> querySpecs.value = this.specs; window.location.reload(false)
 		
 	# Known issues
-	
+
 	# Creating multiple ControlPanelLayers with different scale factors will result in unexpected input field effects.
 ###
 
@@ -156,7 +156,7 @@ class ControlPanelLayer extends Layer
 		  position: relative;
 		  top: #{inputTopOffet}px;
 		}"""
-				
+
 		closeGlyph = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 #{svgTopOffset} #{closeButtonSize} #{closeButtonSize}'><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(45 #{closeGlyphRotationX} #{closeGlyphRotationY})' /><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(135 #{closeGlyphRotationX} #{closeGlyphRotationY})' /></svg>"
 
 		Utils.insertCSS(inputCSS)
