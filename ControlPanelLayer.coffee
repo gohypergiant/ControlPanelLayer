@@ -122,6 +122,7 @@ class ControlPanelLayer extends Layer
 		closeGlyphTop = closeButtonSize/2 - 1 * @options.scaleFactor
 		closeGlyphRotationX = closeButtonSize/2
 		closeGlyphRotationY = closeButtonSize/2
+		inputInsetShadowColor = new Color(@options.inputBackgroundColor).darken(30)
 		alertString = "Add specs with <code style='color:#{codeBodyColor}'><span style='color:#{codeVariableColor}'>specs</span>: <span style='color:#{codeBracketColor}'>&lt;</span>mySpecs<span style='color:#{codeBracketColor}'>&gt;</span></code>"
 
 		rowCount = Object.keys(@options.specs).length + 1 # allow for Commit button
@@ -150,12 +151,12 @@ class ControlPanelLayer extends Layer
 		  padding: #{panelLabelSize/8}px;
 		  appearance: none;
 		  width: #{inputWidth - panelLabelSize/8}px;
-		  box-shadow: inset 0px 1px 2px 0 #999;
+		  box-shadow: inset 0px 1px 2px 0 #{inputInsetShadowColor};
 		  border-radius: #{3 * @options.scaleFactor}px;
 		  position: relative;
 		  top: #{inputTopOffet}px;
 		}"""
-		
+				
 		closeGlyph = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 #{svgTopOffset} #{closeButtonSize} #{closeButtonSize}'><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(45 #{closeGlyphRotationX} #{closeGlyphRotationY})' /><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(135 #{closeGlyphRotationX} #{closeGlyphRotationY})' /></svg>"
 
 		Utils.insertCSS(inputCSS)
