@@ -104,12 +104,12 @@ class ControlPanelLayer extends Layer
 		panelTipMargin = -8 * @options.scaleFactor
 		radioButtonSize = 20 * @options.scaleFactor
 		radioButtonMarkSize = 12 * @options.scaleFactor
+		radioButtonTopMargin = 6 * @options.scaleFactor
 		inputWidth = 50 * @options.scaleFactor
 		inputTopMargin = panelLabelSize/4
 		inputTopOffet = if @options.scaleFactor == 1 then -3 else 0
 		svgTopOffset = if @options.scaleFactor == 1 then 2 else 0
 		commitButtonHeight = 30 * @options.scaleFactor
-		radioButtonTopMargin = 8 * @options.scaleFactor
 		commitButtonTopMargin = 5 * @options.scaleFactor
 		codeVariableColor = "#ed6a43"
 		codeBracketColor = "#a71d5d"
