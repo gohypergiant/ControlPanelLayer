@@ -94,6 +94,7 @@ class ControlPanelLayer extends Layer
 		panelSideMargin = 30 * @options.scaleFactor
 		panelButtonMargin = 15 * @options.scaleFactor
 		panelRowHeight = 35 * @options.scaleFactor
+		minimumPanelHeight = 2 * panelRowHeight + panelTopMargin + panelBottomMargin
 		panelLabelSize = 16 * @options.scaleFactor
 		panelTipSize = 12 * @options.scaleFactor
 		panelTipMargin = -8 * @options.scaleFactor
@@ -132,7 +133,7 @@ class ControlPanelLayer extends Layer
 		@.draggable.momentum = false
 
 		labelWidth = @.width - 125 * @options.scaleFactor
-
+				
 		inputCSS = """
 		input[type='text'] {
 		  color: #{@options.inputTextColor};
@@ -150,7 +151,7 @@ class ControlPanelLayer extends Layer
 		  position: relative;
 		  top: #{inputTopOffet}px;
 		}"""
-
+		
 		closeGlyph = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 #{svgTopOffset} #{closeButtonSize} #{closeButtonSize}'><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(45 #{closeGlyphRotationX} #{closeGlyphRotationY})' /><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(135 #{closeGlyphRotationX} #{closeGlyphRotationY})' /></svg>"
 
 		Utils.insertCSS(inputCSS)
@@ -267,7 +268,7 @@ class ControlPanelLayer extends Layer
 			++keyIndex
 
 
-		@.height = @.contentFrame().height + panelTopMargin + panelBottomMargin + commitButtonHeight + commitButtonTopMargin
+		@.height = Math.max(minimumPanelHeight, @.contentFrame().height + panelTopMargin + panelBottomMargin + commitButtonHeight + commitButtonTopMargin)
 
 		closeButton = new Layer
 			name: "closeButton"
