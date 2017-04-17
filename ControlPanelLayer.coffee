@@ -65,6 +65,10 @@
 	myControlPanel = new ControlPanelLayer
 		specs: querySpecs.value
 		commitAction: -> querySpecs.value = this.specs; window.location.reload(false)
+		
+	# Known issues
+	
+	# Creating multiple ControlPanelLayers with different scale factors will result in unexpected input field effects.
 ###
 
 defaults =
@@ -93,7 +97,7 @@ class ControlPanelLayer extends Layer
 		panelBottomMargin = 15 * @options.scaleFactor
 		panelSideMargin = 30 * @options.scaleFactor
 		panelButtonMargin = 15 * @options.scaleFactor
-		panelRowHeight = 35 * @options.scaleFactor
+		panelRowHeight = 34 * @options.scaleFactor
 		minimumPanelHeight = 2 * panelRowHeight + panelTopMargin + panelBottomMargin
 		panelLabelSize = 16 * @options.scaleFactor
 		panelTipSize = 12 * @options.scaleFactor
