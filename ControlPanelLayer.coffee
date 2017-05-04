@@ -66,6 +66,11 @@
 		specs: querySpecs.value
 		commitAction: -> querySpecs.value = this.specs; window.location.reload(false)
 
+	# Show or hide the ControlPanelLayer
+	myControlPanel.show()
+	myControlPanel.hide()
+	myControlPanel.hidden (<readonly boolean>, returns whether the ControlPanelLayer is currently hidden)
+
 	# Known issues
 
 	# Creating multiple ControlPanelLayers with different scale factors will result in unexpected input field effects.
