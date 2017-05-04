@@ -49,7 +49,7 @@ myControlPanel = new ControlPanelLayer
 
 The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Optionally you may include an explanatory `tip`. Additional keys will be ignored.
 
-The specs object can include strings, numbers and booleans.
+Specs object values can include strings, numbers and booleans.
 
 ```coffeescript
 exampleSpecs =

@@ -21,7 +21,7 @@
 
 	# The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Optionally you may include an explanatory `tip`. Additional keys will be ignored.
 
-	# The specs object can include strings, numbers and booleans.
+	# Specs object values can include strings, numbers and booleans.
 
 	exampleSpecs =
 		defaultText:
@@ -65,7 +65,7 @@
 	myControlPanel = new ControlPanelLayer
 		specs: querySpecs.value
 		commitAction: -> querySpecs.value = this.specs; window.location.reload(false)
-		
+
 	# Known issues
 
 	# Creating multiple ControlPanelLayers with different scale factors will result in unexpected input field effects.
@@ -138,7 +138,7 @@ class ControlPanelLayer extends Layer
 		@.draggable.momentum = false
 
 		labelWidth = @.width - 125 * @options.scaleFactor
-				
+
 		inputCSS = """
 		input[type='text'] {
 		  color: #{@options.inputTextColor};
