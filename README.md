@@ -14,9 +14,9 @@ The ControlPanelLayer module makes it easier to construct a developer panel for 
 
 Copy or save the `ControlPanelLayer.coffee` file into your project's `modules` folder.
 
-### Adding It To Your Project
+### Adding It to Your Project
 
-In your Framer project add the following:
+In your Framer project, add the following:
 
 ```javascript
 ControlPanelLayer = require "ControlPanelLayer"
@@ -47,9 +47,9 @@ myControlPanel = new ControlPanelLayer
 
 #### The specs object
 
-The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Optionally you may include an explanatory `tip`. Additional keys will be ignored.
+The ControlPanelLayer requires your behavior specifications to be organized in key-value object form. Each item must include a `label` and `value`. Optionally, you may include an explanatory `tip`. Additional keys will be ignored.
 
-Specs object values can include strings, numbers and booleans.
+Specs object values can include strings, numbers, and booleans.
 
 ```coffeescript
 exampleSpecs =
@@ -66,11 +66,11 @@ exampleSpecs =
 		value: false
 ```
 
-Referring to a particular spec using such an object is done with the usual dot notation or bracket notation, e.g. `exampleSpecs.animationTime.value` or `exampleSpecs["animationTime"]["value"]` or `exampleSpecs["animationTime"].value`.
+Referring to a particular spec is done with the usual dot or bracket notation, e.g., `exampleSpecs.animationTime.value` or `exampleSpecs["animationTime"]["value"]` or `exampleSpecs["animationTime"].value`.
 
 #### The commit action
 
-The ControlPanelLayer features a Commit button which can be customized to perform any action. You will want to at least overwrite your specs object with any changes effected via the ControlPanelLayer.
+The ControlPanelLayer features a Commit button that can be customized to perform any action. You will want to at least overwrite your specs object with any changes that resulted from using the ControlPanelLayer.
 
 ```coffeescript
 myControlPanel = new ControlPanelLayer
@@ -118,7 +118,7 @@ Hide the ControlPanelLayer instance.
 
 **Returns**
 
-_(Boolean)_: Whether or not the ControlPanelLayer is currently hidden
+_(Boolean)_: Whether or not the ControlPanelLayer is currently hidden.
 
 ---
 
