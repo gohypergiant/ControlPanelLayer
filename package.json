@@ -1,24 +1,23 @@
 {
-  "name": "@blackpixel/framer-gradienthelper",
-  "version": "1.0.0",
-  "description": "Simplifies the process of applying gradients to Framer layers and even enables animated gradients.",
-  "homepage": "https://github.com/bpxl-labs/GradientHelper",
+  "name": "@blackpixel/framer-controlpanellayer",
+  "version": "0.0.0",
+  "description": "Produce a developer panel for controlling aspects of your prototype within the prototype itself..",
+  "homepage": "https://github.com/bpxl-labs/ControlPanelLayer",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bpxl-labs/GradientHelper.git"
+    "url": "git://github.com/bpxl-labs/ControlPanelLayer.git"
   },
   "bugs": {
-    "url": "https://github.com/bpxl-labs/GradientHelper/issues"
+    "url": "https://github.com/bpxl-labs/ControlPanelLayer/issues"
   },
-  "main": "Gradient.coffee",
+  "main": "ControlPanelLayer.coffee",
   "author": "Black Pixel",
   "license": "MIT",
   "keywords": [
     "framerjs",
     "framer",
     "coffeescript",
-    "gradient",
-    "animation"
+    "settings"
   ],
   "publishConfig": {
     "access": "public"
