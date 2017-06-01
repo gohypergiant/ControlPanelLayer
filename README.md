@@ -4,7 +4,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
 [![Maintenance](https://img.shields.io/maintenance/yes/2017.svg)]()
 
-The ControlPanelLayer module makes it easier to construct a developer panel for controlling aspects of your prototype within the prototype itself.
+The ControlPanelLayer module makes it easy to construct a developer panel for controlling aspects of your prototype within the prototype itself.
 	
 <img src="https://cloud.githubusercontent.com/assets/935/25053522/5e1b0ad2-211d-11e7-8a43-b91558fa2d63.png" width="497" style="display: block; margin: auto" alt="ControlPanelLayer preview" />	
 
