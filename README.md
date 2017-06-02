@@ -10,6 +10,13 @@ The ControlPanelLayer module makes it easy to construct a developer panel for co
 
 ### Installation
 
+#### NPM Installation
+
+```bash
+$ cd /your/framer/project
+$ npm i @blackpixel/framer-gradienthelper
+```
+
 #### Manual installation
 
 Copy or save the `ControlPanelLayer.coffee` file into your project's `modules` folder.
@@ -18,7 +25,7 @@ Copy or save the `ControlPanelLayer.coffee` file into your project's `modules` f
 
 In your Framer project, add the following:
 
-```javascript
+```coffeescript
 ControlPanelLayer = require "ControlPanelLayer"
 ```
 
