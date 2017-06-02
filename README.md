@@ -14,7 +14,7 @@ The ControlPanelLayer module makes it easy to construct a developer panel for co
 
 ```bash
 $ cd /your/framer/project
-$ npm i @blackpixel/framer-gradienthelper
+$ npm i @blackpixel/framer-controlpanellayer
 ```
 
 #### Manual installation
