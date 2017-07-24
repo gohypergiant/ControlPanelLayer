@@ -128,7 +128,8 @@ class ControlPanelLayer extends Layer
 		closeGlyphRotationX = closeButtonSize/2
 		closeGlyphRotationY = closeButtonSize/2
 		inputInsetShadowColor = new Color(@options.inputBackgroundColor).darken(30)
-		alertString = "Add specs with <code style='color:#{codeBodyColor}'><span style='color:#{codeVariableColor}'>specs</span>: <span style='color:#{codeBracketColor}'>&lt;</span>mySpecs<span style='color:#{codeBracketColor}'>&gt;</span></code>"
+		alertString = "<p style='font-size:#{panelLabelSize}px; color:#000; text-align:center; line-height:#{commitButtonHeight}px'>Add specs with <code style='color:#{codeBodyColor}'><span style='color:#{codeVariableColor}'>specs</span>: <span style='color:#{codeBracketColor}'>&lt;</span>mySpecs<span style='color:#{codeBracketColor}'>&gt;</span></code></p>"
+		commitString = "<p style='font-size:#{panelLabelSize}px; color:#000; text-align:center; line-height:#{commitButtonHeight}px'>Commit</p>"
 
 		rowCount = Object.keys(@options.specs).length + 1 # allow for Commit button
 		rows = []
@@ -299,7 +300,7 @@ class ControlPanelLayer extends Layer
 			@.hide()
 			@options.closeAction()
 
-		commitButton = new TextLayer
+		commitButton = new Layer
 			name: "commitButton"
 			parent: @
 			width: @.width - panelButtonMargin * 2
@@ -307,13 +308,7 @@ class ControlPanelLayer extends Layer
 			x: Align.center
 			y: Align.bottom(- panelBottomMargin)
 			backgroundColor: @options.buttonColor
-			color: @options.buttonTextColor
-			html: if Object.keys(@options.specs).length == 0 then alertString else "Commit"
-			fontSize: panelLabelSize
-			fontWeight: 600
-			textAlign: "center"
-			padding:
-				vertical: panelLabelSize/3
+			html: if Object.keys(@options.specs).length == 0 then alertString else commitString
 			borderRadius: 5 * @options.scaleFactor
 
 		@.commitButton = commitButton
