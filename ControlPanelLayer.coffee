@@ -105,6 +105,7 @@ class ControlPanelLayer extends Layer
 		panelRowHeight = 34 * @options.scaleFactor
 		minimumPanelHeight = 2 * panelRowHeight + panelTopMargin + panelBottomMargin
 		panelLabelSize = 16 * @options.scaleFactor
+		panelLabelMargin = 6 * @options.scaleFactor
 		panelTipSize = 12 * @options.scaleFactor
 		panelTipMargin = -8 * @options.scaleFactor
 		radioButtonSize = 20 * @options.scaleFactor
@@ -187,6 +188,7 @@ class ControlPanelLayer extends Layer
 					parent: rowBlock
 					height: panelRowHeight
 					width: labelWidth
+					y: panelLabelMargin
 					backgroundColor: "clear"
 					html: "<p>#{@options.specs[row].label}</p>"
 					style:
