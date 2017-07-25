@@ -118,7 +118,7 @@ class ControlPanelLayer extends Layer
 		commitButtonTopMargin = 5 * @options.scaleFactor
 		codeVariableColor = "#ed6a43"
 		codeBracketColor = "#a71d5d"
-		codeBodyColor = "#24292e"
+		codeBodyColor = if @options.buttonTextColor == "black" then "#24292e" else @options.buttonTextColor
 		closeButtonSize = 24 * @options.scaleFactor
 		closeButtonMargin = 8 * @options.scaleFactor
 		closeButtonGlyphMargin = 4 * @options.scaleFactor
@@ -128,8 +128,8 @@ class ControlPanelLayer extends Layer
 		closeGlyphRotationX = closeButtonSize/2
 		closeGlyphRotationY = closeButtonSize/2
 		inputInsetShadowColor = new Color(@options.inputBackgroundColor).darken(30)
-		alertString = "<p style='font-size:#{panelLabelSize}px; color:#000; text-align:center; line-height:#{commitButtonHeight}px'>Add specs with <code style='color:#{codeBodyColor}'><span style='color:#{codeVariableColor}'>specs</span>: <span style='color:#{codeBracketColor}'>&lt;</span>mySpecs<span style='color:#{codeBracketColor}'>&gt;</span></code></p>"
-		commitString = "<p style='font-size:#{panelLabelSize}px; color:#000; text-align:center; line-height:#{commitButtonHeight}px'>Commit</p>"
+		alertString = "<p style='font-size:#{panelLabelSize}px; color:#{@options.buttonTextColor}; text-align:center; line-height:#{commitButtonHeight}px'>Add specs with <code style='color:#{codeBodyColor}'><span style='color:#{codeVariableColor}'>specs</span>: <span style='color:#{codeBracketColor}'>&lt;</span>mySpecs<span style='color:#{codeBracketColor}'>&gt;</span></code></p>"
+		commitString = "<p style='font-size:#{panelLabelSize}px; color:#{@options.buttonTextColor}; text-align:center; line-height:#{commitButtonHeight}px'>Commit</p>"
 
 		rowCount = Object.keys(@options.specs).length + 1 # allow for Commit button
 		rows = []
