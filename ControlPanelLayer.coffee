@@ -105,6 +105,7 @@ class ControlPanelLayer extends Layer
 		panelRowHeight = 34 * @options.scaleFactor
 		minimumPanelHeight = 2 * panelRowHeight + panelTopMargin + panelBottomMargin
 		panelLabelSize = 16 * @options.scaleFactor
+		panelLabelMargin = 6 * @options.scaleFactor
 		panelTipSize = 12 * @options.scaleFactor
 		panelTipMargin = -8 * @options.scaleFactor
 		radioButtonSize = 20 * @options.scaleFactor
@@ -182,34 +183,36 @@ class ControlPanelLayer extends Layer
 
 				rows.push(rowBlock)
 
-				label = new TextLayer
+				label = new Layer
 					name: _.camelCase(@options.specs[row].label + "Label")
 					parent: rowBlock
-					color: @options.textColor
-					text: @options.specs[row].label
-					fontSize: panelLabelSize
-					fontWeight: 500
-					textAlign: "right"
-					padding:
-						vertical: panelLabelSize/3
 					height: panelRowHeight
 					width: labelWidth
+					y: panelLabelMargin
+					backgroundColor: "clear"
+					html: "<p>#{@options.specs[row].label}</p>"
+					style:
+						"font-size": panelLabelSize + "px"
+						"font-weight": "500"
+						"text-align": "right"
+						"color": @options.textColor
 
 				@[label.name] = label
 
 				if tipRequired
-					tip = new TextLayer
+					tip = new Layer
 						name: _.camelCase(@options.specs[row].label + "Tip")
 						parent: rowBlock
 						height: panelRowHeight * 0.4
 						width: labelWidth
 						y: label.maxY + panelTipMargin
-						color: @options.textColor
-						text: @options.specs[row].tip
-						fontSize: panelTipSize
-						fontWeight: 500
-						textAlign: "right"
-						truncate: true
+						backgroundColor: "clear"
+						html: "<p>#{@options.specs[row].tip}</p>"
+						style:
+							"font-size": panelTipSize + "px"
+							"font-weight": "500"
+							"text-align": "right"
+							"color": @options.textColor
 
 					@[tip.name] = tip
 
