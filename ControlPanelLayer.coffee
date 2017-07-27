@@ -107,7 +107,7 @@ class ControlPanelLayer extends Layer
 		panelLabelSize = 16 * @options.scaleFactor
 		panelLabelMargin = 6 * @options.scaleFactor
 		panelTipSize = 12 * @options.scaleFactor
-		panelTipMargin = -8 * @options.scaleFactor
+		panelTipMargin = -10 * @options.scaleFactor
 		radioButtonSize = 20 * @options.scaleFactor
 		radioButtonMarkSize = 12 * @options.scaleFactor
 		radioButtonTopMargin = 6 * @options.scaleFactor
@@ -163,8 +163,6 @@ class ControlPanelLayer extends Layer
 		  position: relative;
 		  top: #{inputTopOffet}px;
 		}"""
-
-		closeGlyph = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 #{svgTopOffset} #{closeButtonSize} #{closeButtonSize}'><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(45 #{closeGlyphRotationX} #{closeGlyphRotationY})' /><rect x='#{closeButtonGlyphMargin}' y='#{closeGlyphTop}' width='#{closeGlyphWidth}' height='#{closeGlyphHeight}' rx='#{1 * @options.scaleFactor}' ry='#{1 * @options.scaleFactor}' fill='white' transform='rotate(135 #{closeGlyphRotationX} #{closeGlyphRotationY})' /></svg>"
 
 		Utils.insertCSS(inputCSS)
 
@@ -237,8 +235,8 @@ class ControlPanelLayer extends Layer
 							parent: input
 							width: radioButtonMarkSize
 							height: radioButtonMarkSize
-							x: Align.center
-							y: Align.center
+							x: (radioButtonSize-radioButtonMarkSize)/2
+							y: (radioButtonSize-radioButtonMarkSize)/2
 							borderRadius: radioButtonMarkSize/2
 							backgroundColor: @options.textColor
 							visible: @options.specs[row].value
@@ -295,13 +293,34 @@ class ControlPanelLayer extends Layer
 			borderColor: "rgba(255,255,255,0.5)"
 			x: closeButtonMargin
 			y: closeButtonMargin
-			html: closeGlyph
 
 		@.closeButton = closeButton
 
 		closeButton.onClick =>
 			@.hide()
 			@options.closeAction()
+
+		closeButtonStroke1 = new Layer
+			name: "closeButtonStroke1"
+			parent: closeButton
+			width: closeGlyphWidth
+			height: closeGlyphHeight
+			x: (closeButtonSize-closeGlyphWidth)/2
+			y: (closeButtonSize-closeGlyphHeight)/2
+			rotation: 45
+			borderRadius: closeGlyphHeight/2
+			backgroundColor: "white"
+
+		closeButtonStroke2 = new Layer
+			name: "closeButtonStroke2"
+			parent: closeButton
+			width: closeGlyphWidth
+			height: closeGlyphHeight
+			x: (closeButtonSize-closeGlyphWidth)/2
+			y: (closeButtonSize-closeGlyphHeight)/2
+			rotation: -45
+			borderRadius: closeGlyphHeight/2
+			backgroundColor: "white"
 
 		commitButton = new Layer
 			name: "commitButton"
