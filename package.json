@@ -1,6 +1,6 @@
 {
   "name": "@blackpixel/framer-controlpanellayer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Produce a developer panel for controlling aspects of your prototype within the prototype itself.",
   "homepage": "https://github.com/bpxl-labs/ControlPanelLayer",
   "repository": {
