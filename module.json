@@ -4,7 +4,10 @@
     "author": "John Marstall",
 
     "require": "ControlPanelLayer = require 'ControlPanelLayer'",
-    "install": "ControlPanelLayer.coffee",
+    "install": [
+	    "ControlPanelLayer.coffee",
+	    "README.md"
+	  ],
     "example": "example.coffee",
 
     "thumb": "thumb.png"
