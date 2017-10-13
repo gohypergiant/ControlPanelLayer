@@ -28,7 +28,10 @@ Copy or save the `ControlPanelLayer.coffee` file into your project's `modules` f
 In your Framer project, add the following:
 
 ```coffeescript
+# If you manually installed
 ControlPanelLayer = require "ControlPanelLayer"
+# else
+ControlPanelLayer = require "@blackpixel/framer-controlpanellayer"
 ```
 
 ### API
