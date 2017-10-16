@@ -1,7 +1,7 @@
 {
     "name": "ControlPanelLayer",
     "description": "Generates a developer panel to expose advanced features of your prototype.",
-    "author": "John Marstall",
+    "author": "John Marstall @ BPXL",
 
     "require": "ControlPanelLayer = require 'ControlPanelLayer'",
     "install": [
